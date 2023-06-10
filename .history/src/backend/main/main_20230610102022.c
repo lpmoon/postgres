@@ -1,5 +1,5 @@
- *
 /*-------------------------------------------------------------------------
+ *
  * main.c
  *	  Stub main() routine for the postgres executable.
  *

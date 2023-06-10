@@ -152,9 +152,9 @@ typedef struct AllocFreeListLink
 typedef struct AllocSetContext
 {
 	// header，在使用的时候直接返回了header，然后可以根据header的地址找到AllocSetContext
+
 	MemoryContextData header;	/* Standard memory-context fields */
 	/* Info about storage allocated in this context: */
-	// 第一个block的指针
 	AllocBlock	blocks;			/* head of list of blocks in this set */
 	MemoryChunk *freelist[ALLOCSET_NUM_FREELISTS];	/* free chunk lists */
 	/* Allocation parameters for this context: */
@@ -183,8 +183,7 @@ typedef AllocSetContext *AllocSet;
  */
 typedef struct AllocBlockData
 {
-	// block的owner是谁。AllocSet是AllocSetContext的指针，指向对应的context。
-	AllocSet	aset;			/* aset that owns this block */ 
+	AllocSet	aset;			/* aset that owns this block */
 	AllocBlock	prev;			/* prev block in aset's blocks list, if any */
 	AllocBlock	next;			/* next block in aset's blocks list, if any */
 	char	   *freeptr;		/* start of free space in this block */
